@@ -38,16 +38,20 @@ def main():
         key_states = pg.key.get_pressed()
 
         
-        if key_states[pg.K_UP]:
-            k_rect.move_ip(0, -1)
-        if key_states[pg.K_DOWN]:
-            k_rect.move_ip(0, 1)
-        if key_states[pg.K_LEFT]:
-            k_rect.move_ip(-1, 0)
-        if key_states[pg.K_RIGHT]:
-            k_rect.move_ip(1, 0)
-        k_rect.move_ip(-1,0)
+   
         
+        dx, dy = -1, 0  
+
+        if key_states[pg.K_UP]:
+            dy -= 1
+        if key_states[pg.K_DOWN]:
+            dy += 1
+        if key_states[pg.K_LEFT]:
+            dx -= 1
+        if key_states[pg.K_RIGHT]:
+            dx += 2
+
+        k_rect.move_ip(dx, dy)  
         pg.display.update()
         tmr+=1
         clock.tick(200)
