@@ -19,7 +19,10 @@ def main():
     tmr = 0  
     k_rect = k_img.get_rect()
     k_rect.center = 300, 200
-    
+
+
+    key_states = pg.key.get_pressed()
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -43,7 +46,8 @@ def main():
             k_rect.move_ip(-1, 0)
         if key_states[pg.K_RIGHT]:
             k_rect.move_ip(1, 0)
-       
+        k_rect.move_ip(-1,0)
+        
         pg.display.update()
         tmr+=1
         clock.tick(200)
